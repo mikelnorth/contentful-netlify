@@ -1,7 +1,6 @@
 ---
-title: "Second Post Dude!"
-date: "2018-11-16"
-
+title: Second Post Man!
+date: '2018-11-16'
 ---
 
 ## Whats up?
