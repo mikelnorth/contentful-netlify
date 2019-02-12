@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mikelnorth/pro-gatsby-blog
+  repo: mikelnorth/gatsbynetlify
 
 media_folder: static/assets
 
