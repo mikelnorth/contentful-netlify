@@ -7,29 +7,36 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `images`,
-          path: `${__dirname}/src/images`,
-        },
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `src`,
-          path: `${__dirname}/src`,
-        },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static/assets`,
       },
-      {
-        resolve: `gatsby-transformer-remark`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src`,
       },
-      'gatsby-transformer-sharp',
-      'gatsby-plugin-sharp',
-      'gatsby-plugin-netlify-cms',
-      {
-        resolve: `gatsby-plugin-manifest`,
-        options: {
-          name: 'gatsby-starter-default',
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-netlify-cms',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
         background_color: '#663399',

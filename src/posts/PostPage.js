@@ -3,7 +3,11 @@ import Layout from '../components/layout';
 
 export default class PostPage extends Component {
   render() {
-      const { markdownRemark } = this.props.data;
+    if (!this.props.data) {
+      return <div>Sorry no data</div>
+    }
+    const { markdownRemark } = this.props.data;
+
     return (
       <Layout location={this.props.location}>
         <span>{markdownRemark.frontmatter.date}</span>
