@@ -14,5 +14,5 @@ collections:
         name: "title"
         widget: "string"
       - {label: "Create At", name: "date", widget: "date", default: "blog"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Post", name: "body", widget: "markdown"}
+      - {label: "Image", name: "image", widget: "image", required: false}
