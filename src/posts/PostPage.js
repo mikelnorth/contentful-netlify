@@ -6,13 +6,13 @@ export default class PostPage extends Component {
     if (!this.props.data) {
       return <div>Sorry no data</div>
     }
-    const { markdownRemark } = this.props.data;
+    const { contentfulBlogPost } = this.props.data;
 
     return (
       <Layout location={this.props.location}>
-        <span>{markdownRemark.frontmatter.date}</span>
-        <h1>{markdownRemark.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <span>{contentfulBlogPost.date}</span>
+        <h1>{contentfulBlogPost.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: contentfulBlogPost.body.childMarkdownRemark.html }} />
       </Layout>
     )
   }
@@ -21,13 +21,16 @@ export default class PostPage extends Component {
 
 export const query = graphql`
     query BlogPostQuery($slug: String!) {
-    markdownRemark(fields: {
-        slug: { eq: $slug } }) {
-            html
-            frontmatter {
-                title
-                date(formatString: "MMMM DD YYYY")
+        contentfulBlogPost(slug: {eq: $slug}) {
+          title
+          body {
+            childMarkdownRemark {
+              html
+              excerpt
             }
+          }
+          slug
+          id
         }
-    }
+  }
 `;

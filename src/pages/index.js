@@ -6,11 +6,11 @@ import PostListing from '../components/Posts/PostListing.js';
 
 
 
-const IndexPage = ({data, location}) => (
+const IndexPage = ({ data, location }) => (
   <Layout location={location}>
     <h2>Posts</h2>
-    {data.allMarkdownRemark.edges.map(({node}) => {
-      return <PostListing key={node.id} post={node}/>
+    {data.allContentfulBlogPost.edges.map(({ node }) => {
+      return <PostListing key={node.id} post={node} />
     })}
   </Layout>
 )
@@ -19,25 +19,23 @@ export default IndexPage
 
 export const query = graphql`
 query SiteMeta {
-    site {
-      siteMetadata {
-        title
-      }
+  site {
+    siteMetadata {
+      title
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+  }
+  allContentfulBlogPost {
     edges {
       node {
-          id
-        frontmatter {
-          title
-          date(formatString:"MMMM DD YYYY")
+        title
+       body {
+          childMarkdownRemark {
+            excerpt
+          }
         }
-        fields{
-          slug
-        }
-        html
-        excerpt(pruneLength: 280)
-        # gatsby plugin remark for more info (pruneLength:280)
+        createdAt(formatString:"MMM DD, YYYY")
+        slug
+        id
       }
     }
   }
